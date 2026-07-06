@@ -1,7 +1,7 @@
 # vynull-site
 
 The showcase / landing page for [Vynull](https://github.com/vynulldev/vynull) —
-a virtual Pioneer CDJ / rekordbox source for Linux. Lives at
+a virtual CDJ / rekordbox source for Linux. Lives at
 **[vynull.dev](https://vynull.dev)**.
 
 A single static `index.html` (no build step, no framework, no external
