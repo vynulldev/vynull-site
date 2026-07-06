@@ -26,8 +26,8 @@ Add screenshots to `assets/` (the page shows styled placeholders until they
 exist, then swaps them in automatically):
 
 - `assets/screenshot-webui.png` — the browser library manager
-- `assets/screenshot-cdj.png` — color waveforms on a real CDJ
-- `assets/screenshot-tui.png` — the terminal monitor
+- `assets/screenshot-detail.png` — track detail: zoom waveform, beat grid, cues
+- `assets/screenshot-players.png` — live players & mixer status
 
 A short **demo GIF/MP4** of waveforms rendering on a deck is the highest-impact
 addition — drop it in and reference it in the "See it" section.

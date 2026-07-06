@@ -2,7 +2,7 @@
 <!--
   Vynull landing page — static, self-contained, no build step or external deps.
   Hosted on GitHub Pages at vynull.dev. Drop screenshots into assets/ before
-  publishing (screenshot-webui.png, screenshot-cdj.png, screenshot-tui.png).
+  publishing (screenshot-webui.png, screenshot-detail.png, screenshot-players.png).
 -->
 <html lang="en">
 <head>
@@ -75,6 +75,8 @@
           border: 1px dashed #32323c; border-radius: 10px; color: var(--faint); font-size: 13px; text-align: center; padding: 16px; background: repeating-linear-gradient(45deg, #121218, #121218 10px, #14141a 10px, #14141a 20px); }
     figcaption { color: var(--dim); font-size: 13px; margin-top: 8px; }
     .shots figure:first-child { grid-column: 1 / -1; }
+    .theme-shots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .theme-shots figcaption { text-align: center; letter-spacing: 0.12em; }
 
     /* features */
     .feat { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px 28px; }
@@ -98,7 +100,7 @@
     footer a { color: var(--dim); }
 
     @media (max-width: 640px) {
-      .shots, .feat { grid-template-columns: 1fr; }
+      .shots, .feat, .theme-shots { grid-template-columns: 1fr; }
       h1 { letter-spacing: 5px; }
       nav .links { display: none; }
     }
@@ -109,6 +111,7 @@
     <span class="brand"><img src="favicon.svg" alt="">VYNULL</span>
     <span class="links">
       <a href="#screens">Screens</a>
+      <a href="#themes">Themes</a>
       <a href="#features">Features</a>
       <a href="#start">Quick start</a>
       <a href="https://github.com/vynulldev/vynull">Source</a>
@@ -138,19 +141,40 @@
       <h2>See it</h2>
       <div class="shots">
         <figure>
-          <img src="assets/screenshot-webui.png" alt="Vynull web UI" onerror="this.closest('figure').classList.add('placeholder')">
-          <div class="ph">Add <code>assets/screenshot-webui.png</code><br>— the browser library manager (browse, waveform + beat grid, cues)</div>
-          <figcaption>Browser library manager — browse, edit metadata, zoom waveform with beat grid.</figcaption>
+          <img src="assets/screenshot-webui.png" alt="Vynull web UI — browser library manager" onerror="this.closest('figure').classList.add('placeholder')">
+          <div class="ph">Add <code>assets/screenshot-webui.png</code><br>— the browser library manager (browse, waveform thumbnails, tags)</div>
+          <figcaption>Browser library manager — browse, edit metadata, waveform thumbnails, tags &amp; playlists.</figcaption>
         </figure>
         <figure>
-          <img src="assets/screenshot-cdj.png" alt="Color waveforms on a CDJ" onerror="this.closest('figure').classList.add('placeholder')">
-          <div class="ph">Add <code>assets/screenshot-cdj.png</code><br>— color waveforms rendered on a real CDJ</div>
-          <figcaption>Color waveforms on the deck.</figcaption>
+          <img src="assets/screenshot-detail.png" alt="Track detail — zoom waveform and beat grid" onerror="this.closest('figure').classList.add('placeholder')">
+          <div class="ph">Add <code>assets/screenshot-detail.png</code><br>— track detail: zoom waveform, beat grid, cues</div>
+          <figcaption>Track detail — zoom waveform, beat grid, cue points, key &amp; BPM.</figcaption>
         </figure>
         <figure>
-          <img src="assets/screenshot-tui.png" alt="Vynull terminal monitor" onerror="this.closest('figure').classList.add('placeholder')">
-          <div class="ph">Add <code>assets/screenshot-tui.png</code><br>— the live terminal monitor</div>
-          <figcaption>Live terminal monitor.</figcaption>
+          <img src="assets/screenshot-players.png" alt="Live players and mixer status" onerror="this.closest('figure').classList.add('placeholder')">
+          <div class="ph">Add <code>assets/screenshot-players.png</code><br>— live players &amp; mixer status</div>
+          <figcaption>Live players — decks, master/sync/on-air, mixer status.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="themes">
+      <h2>Three themes</h2>
+      <div class="theme-shots">
+        <figure>
+          <img src="assets/theme-terminal.png" alt="Web UI — TERMINAL theme" onerror="this.closest('figure').classList.add('placeholder')">
+          <div class="ph">Add <code>assets/theme-terminal.png</code></div>
+          <figcaption>TERMINAL</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/theme-slate.png" alt="Web UI — SLATE theme" onerror="this.closest('figure').classList.add('placeholder')">
+          <div class="ph">Add <code>assets/theme-slate.png</code></div>
+          <figcaption>SLATE</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/theme-light.png" alt="Web UI — LIGHT theme" onerror="this.closest('figure').classList.add('placeholder')">
+          <div class="ph">Add <code>assets/theme-light.png</code></div>
+          <figcaption>LIGHT</figcaption>
         </figure>
       </div>
     </section>
@@ -165,6 +189,7 @@
         <div><b>Cue points</b> — hot &amp; memory cues, with colors and loops</div>
         <div><b>Native FLAC / WAV / AIFF</b> playback over NFS (optional transcode)</div>
         <div><b>Browser library manager</b> — search, tags, playlists, live players</div>
+        <div><b>Three UI themes</b> — TERMINAL, SLATE &amp; LIGHT, right in the browser</div>
         <div><b>Smart playlists</b>, MyTags, track colors, ratings</div>
         <div><b>USB export</b> — write a rekordbox-compatible USB structure</div>
         <div><b>Headless</b> mode + live terminal monitor; runs great on a Raspberry Pi</div>
