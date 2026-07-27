@@ -94,6 +94,13 @@
     .reqs { color: var(--dim); font-size: 15px; }
     .reqs code, .fnote code { color: var(--amber); background: #17110a; padding: 1px 6px; border-radius: 5px; }
     .fnote { color: var(--faint); font-size: 13px; margin-top: 18px; }
+    .faq details { border-top: 1px solid var(--line); }
+    .faq details:last-child { border-bottom: 1px solid var(--line); }
+    .faq summary { cursor: pointer; padding: 14px 0; font-weight: 600; list-style: none; }
+    .faq summary::before { content: "+"; color: var(--amber); margin-right: 12px; }
+    .faq details[open] summary::before { content: "\2212"; }
+    .faq details p { color: var(--dim); font-size: 14px; margin: 0 0 16px 22px; line-height: 1.6; }
+    .faq details code { color: var(--amber); background: #17110a; padding: 1px 6px; border-radius: 5px; }
 
     footer { border-top: 1px solid var(--line); padding: 34px 0 56px; color: var(--faint); font-size: 13px; }
     footer .disc { margin-top: 12px; line-height: 1.7; }
@@ -114,6 +121,7 @@
       <a href="#themes">Themes</a>
       <a href="#features">Features</a>
       <a href="#start">Quick start</a>
+      <a href="#faq">FAQ</a>
       <a href="https://github.com/vynulldev/vynull">Source</a>
     </span>
   </nav>
@@ -208,6 +216,79 @@ go build -o vynull .
 
 <span class="c"># or start empty and add tracks via the API / web UI</span>
 ./vynull <span class="o">--interface</span> eth1 <span class="o">--web</span></pre>
+    </section>
+
+
+    <section id="faq">
+      <h2>FAQ</h2>
+      <div class="faq">
+        <details>
+          <summary>What is Vynull?</summary>
+          <p>Vynull is a DJ library application that interfaces directly with your Pioneer CDJ/XDJ
+          hardware: load tracks from your Linux PC straight onto the decks &mdash; no rekordbox, no
+          USB sticks, no export step. It speaks Pro&nbsp;DJ&nbsp;Link, so the players see your
+          machine as a rekordbox source on the network and browse and load your music with
+          waveforms, beat grids, and cues, exactly as if it came from rekordbox. Vynull analyzes
+          your tracks itself (BPM, key, beat grids, phrases) and gives you a browser UI for tracks,
+          playlists, and cues.</p>
+        </details>
+        <details>
+          <summary>Do I need rekordbox?</summary>
+          <p>No. Vynull runs standalone: point it at a music folder, or manage a library through the
+          built-in web UI, and it analyzes tracks itself (BPM, beat grids, waveforms, key, phrases).
+          If you already have a rekordbox or Traktor library, you can import it &mdash; tracks,
+          playlists, cues, tags, and artwork.</p>
+        </details>
+        <details>
+          <summary>How does it work?</summary>
+          <p>CDJs discover sources over Pioneer's undocumented Pro&nbsp;DJ&nbsp;Link protocol. Vynull
+          speaks it: it announces itself as a rekordbox source, answers the decks' browse and
+          metadata queries, and serves the audio and analysis files the same way rekordbox does.
+          The protocol understanding builds on years of community reverse-engineering &mdash; see the
+          acknowledgements in the README.</p>
+        </details>
+        <details>
+          <summary>Is this an official Pioneer DJ product?</summary>
+          <p>No. Vynull is an independent, unofficial project, not affiliated with or endorsed by
+          Pioneer&nbsp;DJ / AlphaTheta. It exists because the gear is great and the protocol was
+          worth learning.</p>
+        </details>
+        <details>
+          <summary>Will importing touch my rekordbox library?</summary>
+          <p>Imports only read your library &mdash; Vynull keeps its own data alongside and never
+          writes back to rekordbox's files. Back up before importing anyway; that's just good
+          practice with a library you care about.</p>
+        </details>
+        <details>
+          <summary>Can it serve lossless files?</summary>
+          <p>Yes &mdash; FLAC, WAV, and AIFF are served natively with the right decoder hints so the
+          deck picks the correct decoder, alongside MP3 and M4A/AAC. For older decks that can't
+          decode lossless over the link there's a <code>--transcode</code> option that converts to
+          MP3 on the fly.</p>
+        </details>
+        <details>
+          <summary>What hardware does it work with?</summary>
+          <p>Developed and hardware-verified against a CDJ-2000NXS2 and a DJM mixer. Anything
+          speaking standard Pro&nbsp;DJ&nbsp;Link should largely work, but other models are
+          untested &mdash; reports welcome.</p>
+        </details>
+        <details>
+          <summary>Does it run on Windows or macOS?</summary>
+          <p>Linux only (x86-64 and ARM64) &mdash; it runs happily on a Raspberry Pi next to your
+          decks. There are no current plans for other platforms.</p>
+        </details>
+        <details>
+          <summary>Would you play a gig with it?</summary>
+          <p>Honestly: not yet. It's a hobby project that speaks a reverse-engineered protocol;
+          expect the occasional strange deck behaviour. It's great for the practice room and for
+          tinkering &mdash; treat anything more as living dangerously.</p>
+        </details>
+        <details>
+          <summary>Is it free?</summary>
+          <p>Free and open source, GPLv3. The code, the protocol notes, and the analysis pipeline
+          are all in the repository.</p>
+        </details>
+      </div>
     </section>
 
     <section>
