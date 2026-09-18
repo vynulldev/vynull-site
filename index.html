@@ -97,6 +97,21 @@
     .theme-shots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
     .theme-shots figcaption { text-align: center; letter-spacing: 0.12em; }
 
+    /* lightbox — click any screenshot to enlarge, click/Esc to close */
+    figure:not(.placeholder) img { cursor: zoom-in; }
+    .lightbox {
+      position: fixed; inset: 0; z-index: 50; display: none; flex-direction: column;
+      align-items: center; justify-content: center; gap: 12px; padding: 28px;
+      background: rgba(6, 6, 9, .93); cursor: zoom-out;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img {
+      max-width: 100%; max-height: calc(100% - 40px); object-fit: contain;
+      border: 1px solid var(--line); border-radius: 10px; background: var(--panel);
+      box-shadow: 0 24px 90px rgba(0, 0, 0, .65);
+    }
+    .lightbox .lb-cap { color: var(--dim); font-size: 13px; text-align: center; }
+
     /* features */
     .feat { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px 28px; }
     .feat div { padding-left: 20px; position: relative; color: var(--dim); font-size: 15px; }
@@ -328,6 +343,30 @@ go build -o vynull .
       </p>
     </section>
   </div>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged screenshot">
+    <img alt="">
+    <div class="lb-cap"></div>
+  </div>
+  <script>
+    (() => {
+      const lb = document.getElementById('lightbox');
+      const im = lb.querySelector('img'), cap = lb.querySelector('.lb-cap');
+      const close = () => { lb.classList.remove('open'); document.body.style.overflow = ''; im.src = ''; };
+      lb.addEventListener('click', close);
+      addEventListener('keydown', e => { if (e.key === 'Escape' && lb.classList.contains('open')) close(); });
+      document.addEventListener('click', e => {
+        const img = e.target.closest('figure img');
+        if (!img || img.closest('figure').classList.contains('placeholder')) return;
+        im.src = img.src;
+        im.alt = img.alt;
+        const fc = img.closest('figure').querySelector('figcaption');
+        cap.textContent = (fc && fc.textContent.trim()) || img.alt;
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    })();
+  </script>
 
   <footer>
     <div class="wrap">
