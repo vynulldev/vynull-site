@@ -96,6 +96,8 @@
     .shots figure:first-child { grid-column: 1 / -1; }
     .theme-shots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
     .theme-shots figcaption { text-align: center; letter-spacing: 0.12em; }
+    #touch .reqs { margin: 0 0 22px; }
+    #touch .feat { margin-top: 26px; }
 
     /* lightbox — click any screenshot to enlarge, click/Esc to close */
     figure:not(.placeholder) img { cursor: zoom-in; }
@@ -154,6 +156,7 @@
       <a href="#screens">Screens</a>
       <a href="#themes">Themes</a>
       <a href="#features">Features</a>
+      <a href="#touch">Touch</a>
       <a href="#start">Quick start</a>
       <a href="#faq">FAQ</a>
       <a href="https://github.com/vynulldev/vynull">Source</a>
@@ -237,6 +240,42 @@
         <div><b>Headless</b> mode + live terminal monitor; runs great on a Raspberry Pi</div>
       </div>
       <p class="fnote">* rekordbox's <code>master.db</code> is encrypted — importing it requires the database key (see the <a href="https://github.com/vynulldev/vynull">README</a>).</p>
+    </section>
+
+    <section id="touch">
+      <h2>Vynull Touch</h2>
+      <p class="reqs">A touchscreen companion for Vynull, built for an <b>800×480</b> screen beside the
+      decks, such as a Raspberry&nbsp;Pi touchscreen, and adapting to larger ones. Browse and prepare
+      tracks, inspect waveforms and cues, and watch and load the players, all by touch. It's a native
+      Rust app that talks to Vynull over its HTTP API.</p>
+      <div class="shots">
+        <figure>
+          <img loading="lazy" src="assets/touch-players.png" alt="Vynull Touch Players view: two decks' scrolling waveforms with phrase strips, and both tracks' overviews" onerror="this.closest('figure').classList.add('placeholder')">
+          <div class="ph">Add <code>assets/touch-players.png</code><br>(Vynull Touch, Players)</div>
+          <figcaption>Players: scrolling waveforms for two decks, phrase strips, and countdowns in bars to the next phrase and cue.</figcaption>
+        </figure>
+        <figure>
+          <img loading="lazy" src="assets/touch-collection.png" alt="Vynull Touch Collection with key and BPM matches highlighted" onerror="this.closest('figure').classList.add('placeholder')">
+          <div class="ph">Add <code>assets/touch-collection.png</code><br>(Vynull Touch, Collection)</div>
+          <figcaption>Library: key and BPM matches against the master deck, and a badge on tracks loaded on a deck.</figcaption>
+        </figure>
+        <figure>
+          <img loading="lazy" src="assets/touch-inspect.png" alt="Vynull Touch Inspect with waveforms, phrases and hot cues A to H" onerror="this.closest('figure').classList.add('placeholder')">
+          <div class="ph">Add <code>assets/touch-inspect.png</code><br>(Vynull Touch, Inspect)</div>
+          <figcaption>Inspect: waveforms, beat grid, phrases, hot cues A–H, loops and preview audio.</figcaption>
+        </figure>
+      </div>
+      <div class="feat">
+        <div><b>Library</b> browsing with on-screen search, filters and sorting</div>
+        <div><b>Match</b> highlighting of compatible keys and tempos</div>
+        <div><b>Prepare</b>, a shared shortlist for the next tracks</div>
+        <div><b>Cue, beat grid and tag editing</b>, with grid undo and redo</div>
+        <div><b>Load to any deck</b>, asking before replacing a playing track</div>
+        <div><b>Runs on a Raspberry Pi</b> or any x86-64 or ARM64 Linux desktop</div>
+      </div>
+      <p class="fnote">A separate hobby project and a work in progress: it needs a running Vynull, and it
+      hasn't been checked on a physical touchscreen or with live decks yet.
+      <a href="https://github.com/vynulldev/vynull-touch">Source and setup on GitHub</a>.</p>
     </section>
 
     <section id="start">
@@ -372,7 +411,8 @@ go build -o vynull .
     <div class="wrap">
       <a href="https://github.com/vynulldev/vynull">Source</a> ·
       <a href="https://github.com/vynulldev/vynull/releases">Downloads</a> ·
-      <a href="https://github.com/vynulldev/vynull/blob/main/LICENSE">GPLv3</a>
+      <a href="https://github.com/vynulldev/vynull/blob/main/LICENSE">GPLv3</a> ·
+      <a href="https://github.com/vynulldev/vynull-touch">Vynull Touch</a>
       <div class="disc">
         Vynull is an independent, unofficial project. It is not affiliated with, authorized, or endorsed by
         Pioneer&nbsp;DJ / AlphaTheta. "Pioneer DJ", "CDJ", "rekordbox", and "Pro DJ Link" are trademarks of
