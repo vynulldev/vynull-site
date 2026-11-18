@@ -28,8 +28,10 @@ One-time setup in the repo:
 
 The screenshots in `assets/` are generated reproducibly — no personal library
 and no hardware required — by the screenshot pipeline in the companion
-`vynull-tools` repo (`screenshots/`). `index.html` falls back to a styled
-placeholder for any asset that's missing.
+`vynull-tools` repo (`screenshots/`). The Vynull Touch images
+(`assets/touch-*.png`) are demo captures from the `vynull-touch` repo's
+`scripts/capture.py`. `index.html` falls back to a styled placeholder for any
+asset that's missing.
 
 A short **demo GIF/MP4** of waveforms rendering on a deck is the
 highest-impact addition still open — drop it in `assets/` and reference it in
